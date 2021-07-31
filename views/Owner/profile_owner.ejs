@@ -1,0 +1,76 @@
+    <html>
+        <%- include("./menu") %>
+        
+            <head>
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+                <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                        
+            </head>
+        <body>
+            <div class="w3-main" style="margin-left:500px;">
+
+            <center><br>
+                <br><br><br><br> 
+                       <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 ">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 >User Profile</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="box box-info">
+                                        <div class="box-body">
+                                            <div class="col-lg-6">
+                                                 <img alt="User Pic" src="./images/<%= user.image %>" style="height:250px" id="profile-image1" class=" img-responsive"> 
+                                                    <input id="profile-image-upload" class="hidden" type="file">
+                                                    <div style="color:#999;" ></div>
+                                                <br>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <h4 style="color:#00b1b1;"><%= user.username %> </h4></span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <hr style="margin:5px 0 5px 0;">
+                                            <div class="col-sm-5 col-xs-6 tital " >Name:</div>
+                                            <div class="col-sm-7 col-xs-6 "><%= user.username %></div>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                            <div class="col-sm-5 col-xs-6 tital " >Email:</div>
+                                            <div class="col-sm-7"><%= user.email %></div>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                                            <div class="col-sm-5 col-xs-6 tital " >Contact No.:</div>
+                                            <div class="col-sm-7"><%= user.phone %></div>
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                
+                                            <div class="col-sm-5 col-xs-6 tital " >Address</div>
+                                            <div class="col-sm-7"><%= user.address %></div>
+                
+                                            <div class="clearfix"></div>
+                                            <div class="bot-border"></div>
+                
+                                            <div class="col-sm-5 col-xs-6 tital " >City</div>
+                                            <div class="col-sm-7"><%= user.city %></div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>  
+                    <script>
+                              $(function() {
+                    $('#profile-image1').on('click', function() {
+                        $('#profile-image-upload').click();
+                    });
+                });       
+                              </script> 
+                       
+                       
+                    </div>
+                </div>
+                </center></div>
+            </body>
+        <!------ Include the above in your HEAD tag ---------->
+        </html>

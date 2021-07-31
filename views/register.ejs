@@ -1,0 +1,182 @@
+<%- include("./partials/header") %>
+
+    <div style="padding-left: 15px;padding-top: 15px;padding-right: 15px;">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+            id="ftco-navbar">
+
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    
+                    <a class="navbar-brand" href="/"><span style="color: black; font-size: 28px;"><b>Venue
+                                Book.</b></span></a>
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="ftco-nav">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="nav-item cta">
+                            <a href="/login" style="color: black;font-size: 18px;">Login&nbsp;<i
+                                    class="fa fa-plus"></i></a>
+                        </li>
+
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+
+    <section>
+        <form action="/register" method="POST">
+
+            <div class="sign-in-form">
+                <div class="sign-in-form-top">
+                    <center>
+                        <h1>Create new account</h1>
+                    </center>
+                    <hr>
+                </div>
+                <% if (message.length> 0) { %>
+                    <div class="alert alert-warning">
+                        <%= message %>
+                    </div>
+                    <% } %>
+
+                        <style>
+                            * {
+                                box-sizing: border-box;
+                            }
+
+                            /* Create three equal columns that floats next to each other */
+                            .column {
+                                float: left;
+                                width: 33.33%;
+                                padding: 10px;
+                                height: 215px;
+                                /* Should be removed. Only for demonstration */
+                            }
+
+                            /* Clear floats after the columns */
+                            .row:after {
+                                content: "";
+                                display: table;
+                                clear: both;
+                            }
+
+                            /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+                            @media screen and (max-width: 100px) {
+                                .column {
+                                    width: 100%;
+                                }
+                            }
+                        </style>
+
+                        <div style="width: 200%;margin-left: -230px;">
+                            <div class="column" style="background-color:white;">
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Name</b></label>
+                                        <input type="text" name="username" class="user" required value="Your Name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Your Name';}" required />
+                                            </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Email</b></label>
+                                        <input type="text" name="email" class="user" required value="Your Email" 
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Your Email';}" required/>
+                                            </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Contact no.  </b></label>
+                                        <input type="text" name="phone" class="user" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required value="Your Number" maxlength="10" minlength="10"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = '';}" required/>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                            <div class="column" style="background-color:white;">
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Address  </b></label>
+                                        <input type="text" name="address" class="user" required value="Your Address" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Your Address';}" required />
+                                    </div>
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>City  </b></label>
+                                        <select class="form-control" style="height:40px;border-radius: 0%;border-width: 1px;" type="text" name="city" class="user" required aria-placeholder="Your City"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Your City';}">
+                                        <option disabled>Select your city</option>
+                                        <% records.forEach(function(row){ %>
+                                            <%if (row.status == 'Active'){ %>
+                                        <option><%= row.city_name %></option>
+                                        <% }}) %>
+                                        </select>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div><br>
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Image  </b></label>
+                                        <input type="file" class="form-control" style="height: 40px" name="image" accept="image/* required">
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div></div>
+                            <div class="column" style="background-color:white;">
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Password  </b></label>
+                                        <input type="password" name="password" required class="lock" value="Password"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Password:';}" required/>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="log-input">
+                                    <div class="log-input-left">
+                                        <label><b>Confirm Password  </b></label>
+                                        <input type="password" name="c_password" class="lock" required value="Confirm Password"
+                                            onfocus="this.value = '';"
+                                            onblur="if (this.value == '') {this.value = 'Confirm Password:';}" required />
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+
+
+                        <div style="padding-left: 450px;">
+
+                        <input style="background: black;
+                        background-color: black;
+                        border-radius: 34rem;
+                        border: none;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        width: 200px;
+                        height: 40px" type="submit" value="Register"></div>
+            
+            </div>
+            
+
+
+
+        </form><br><br>
+        <%- include("./partials/footer") %>

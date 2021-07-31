@@ -1,0 +1,283 @@
+<%- include("./menu") %>
+
+    <!-- <%- include("../partials/header") %> -->
+    <style>
+        /*	Reset & General
+---------------------------------------------------------------------- */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: #ecf1f5;
+            font: 14px "Open Sans", sans-serif;
+            text-align: center;
+        }
+
+        .tile {
+            width: 100%;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 3px -1px rgba(151, 171, 187, 0.7);
+            float: left;
+            transform-style: preserve-3d;
+            margin: 10px 5px;
+
+        }
+
+        .header {
+            border-bottom: 1px solid #ebeff2;
+            padding: 19px 0;
+            text-align: center;
+            color: #59687f;
+            font-size: 600;
+            font-size: 19px;
+            position: relative;
+        }
+
+        .banner-img {
+            padding: 5px 5px 0;
+        }
+
+        .banner-img img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .dates {
+            border: 1px solid #ebeff2;
+            border-radius: 5px;
+            padding: 20px 0px;
+            margin: 10px 20px;
+            font-size: 16px;
+            color: #5aadef;
+            font-weight: 600;
+            overflow: auto;
+        }
+
+        .dates div {
+            float: left;
+            width: 50%;
+            text-align: center;
+            position: relative;
+        }
+
+        .dates strong,
+        .stats strong {
+            display: block;
+            color: #adb8c2;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .dates span {
+            width: 1px;
+            height: 40px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #ebeff2;
+        }
+
+        .stats {
+            border-top: 1px solid #ebeff2;
+            background: #f7f8fa;
+            overflow: auto;
+            padding: 15px 0;
+            font-size: 16px;
+            color: #59687f;
+            font-weight: 600;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .stats div {
+            border-right: 1px solid #ebeff2;
+            width: 33.33333%;
+            float: left;
+            text-align: center
+        }
+
+        .stats div:nth-of-type(3) {
+            border: none;
+        }
+
+        div.footer {
+            text-align: right;
+            position: relative;
+            margin: 20px 5px;
+        }
+
+        div.footer a.Cbtn {
+            padding: 10px 25px;
+            background-color: #DADADA;
+            color: #666;
+            margin: 10px 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        div.footer a.Cbtn-primary {
+            background-color: #5AADF2;
+            color: #FFF;
+        }
+
+        div.footer a.Cbtn-primary:hover {
+            background-color: #7dbef5;
+        }
+
+        div.footer a.Cbtn-danger {
+            background-color: #fc5a5a;
+            color: #FFF;
+        }
+
+        div.footer a.Cbtn-danger:hover {
+            background-color: #fd7676;
+        }
+
+        .card-notify-badge {
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            background: black;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+
+        }
+
+        .card-notify-year {
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            background: gray;
+            border-radius: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            width: 50px;
+            height: 50px;
+            padding: 15px 0 0 0;
+        }
+    </style>
+    <div class="w3-main" style="margin-left:300px;">
+
+        <header class="w3-container" style="padding-top:22px">
+            <center>
+                <h3><b></i>Venues Requests</b></h3>
+            </center>
+
+        </header>
+        <hr>
+        <div>
+            <center>
+                <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+                    id="bootstrap-css">
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <!------ Include the above in your HEAD tag ---------->
+
+                <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet'
+                    type='text/css' />
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <%if (records.length>0){ %>
+                            <% records.forEach(function(row){ %>
+                                <%if (row.Request =='Pending'){ %>
+                                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                                    <div class="tile">
+                                        <div class="wrapper">
+                                            <span class="card-notify-badge">
+                                                <%= row.owner_email %>
+                                            </span>
+                                            <span class="card-notify-year">
+                                                <%= row.v_discount %>%
+                                            </span>
+                                            <div class="header"><b>
+                                                    <%= row.v_name %>
+                                                </b></div>
+
+                                            <div class="banner-img">
+                                                <img src="/images/<%= row.image1 %>"
+                                                    style="height: 160px;width: 250px;">
+                                            </div>
+
+                                            <div class="dates">
+
+                                                <strong>Phone</strong>
+                                                <%= row.v_phone %>
+                                                    <hr>
+                                                    <strong>Address</strong>
+                                                    <%= row.v_address %>,<br>
+                                                        <%= row.v_city %>
+
+                                            </div>
+
+                                            <div class="stats">
+
+                                                <div>
+                                                    <strong>Morning Rent</strong>
+                                                    <%= row.morn_rent %>
+                                                </div>
+
+                                                <div>
+                                                    <strong>Evening Rent</strong>
+                                                    <%= row.eve_rent %>
+                                                </div>
+
+                                                <div>
+                                                    <strong>Fullday Rent</strong>
+                                                    <%= row.full_rent %>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="stats">
+
+                                                <div>
+                                                    <strong>Capacity</strong>
+                                                    <%= row.v_capacity %>
+                                                </div>
+
+                                                <div>
+                                                    <strong>Deposite</strong>
+                                                    <%= row.v_deposite %>
+                                                </div>
+
+                                                <div>
+                                                    <strong>Status</strong>
+                                                    <%= row.status %>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <!-- <input style="background: black;
+                                            background-color: black;
+                                            border-radius: 34rem;
+                                            border: none;
+                                            color: white;
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                            width: 200px;
+                                            height: 40px" type="submit" value="Accept"> -->
+                                            <div class="footer">
+                                
+                                <a href="/edit/<%= row.v_name  %>" class="Cbtn Cbtn-danger">Accept</a>
+                            </div> 
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <% }}) %>
+                                <%}%>
+                                
+                    </div>
+                </div>
+                
+            </center>
+        </div>

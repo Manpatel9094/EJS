@@ -1,0 +1,270 @@
+<title>Venue</title>
+<style>
+    .container {
+        position: relative;
+
+    }
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 15px;
+    }
+
+    /* Style the images inside the grid */
+    .column img {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    .column img:hover {
+        opacity: 1;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+    body {
+        background-color: #f5f5f5;
+        padding-top: 25px;
+        font-family: 'Open sans', Arial, sans-serif;
+    }
+
+
+    .store-body {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .store-body .product-info {
+        width: 60%;
+        border-right: 1px solid rgba(0, 0, 0, .125);
+    }
+
+    .store-body .product-payment-details {
+        width: 40%;
+        padding: 15px 15px 0 15px;
+    }
+
+    .stats {
+        border-top: 1px;
+        background: white;
+        overflow: auto;
+        padding: 15px 0;
+        font-size: 16px;
+        color: black;
+        font-weight: 600;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .stats div {
+        border-right: 1px solid #ebeff2;
+        width: 33.33333%;
+        float: left;
+        text-align: center
+    }
+
+    .stats div:nth-of-type(3) {
+        border: none;
+    }
+</style>
+<script>
+    function myFunction(imgs) {
+        // Get the expanded image
+        var expandImg = document.getElementById("expandedImg");
+        // Get the image text
+        var imgText = document.getElementById("imgtext");
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        expandImg.src = imgs.src;
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        imgText.innerHTML = imgs.alt;
+        // Show the container element (hidden with CSS)
+        expandImg.parentElement.style.display = "block";
+    }
+</script>
+<br>
+<header class="w3-container" style="padding-top:22px;padding-left: 32px;padding-right: 32px;">
+
+    <a class="navbar-brand" href="/index"><span style="color: black; font-size: 28px;"><b>
+                Venue Book.
+            </b></span></a>
+    <a href="/">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>LogOut</b>
+        </span>
+    </a>
+    <a href="/profile">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b><%= user.username %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+
+    <a href="/wishlist">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Wishlist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+    <a href="/My_Booking">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>My Bookings</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    <a href="/view_more">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Venues</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+
+
+</header>
+    <hr>
+    <div>
+        <center>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
+                id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!------ Include the above in your HEAD tag ---------->
+
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet'
+                type='text/css' />
+
+            <div class="container-fluid">
+                <div class="row">
+                    <form class="" action="/paynow_booking" method="post">
+
+                    <%if (records.length>0){ %>
+
+                        <% records.forEach(function(row){ %>
+                            <% for(venue_name of venue_names) {%>
+                                <% if(row.v_name==venue_name.demo ){%>
+
+                                    <main style="padding-left:80px;">
+
+
+
+                                        <div class="card-body store-body" style="background-color: white;">
+                                            <div class="product-info" style="padding-right: 50px;">
+
+
+                                                <div class="product-gallery-featured"><br><br>
+                                                    <div class="container">
+
+                                                        <img src="/images/<%= row.image1 %>" id="expandedImg"
+                                                            style="margin-left: -20px;width:660px;height:400px;">
+
+
+                                                    </div><br><br>
+                                                    <div class="row">
+                                                        <div class="column">
+                                                            <img src="/images/<%= row.image1 %>" alt="Nature"
+                                                                style="height: 100px;width: 130px;"
+                                                                onclick="myFunction(this);">
+                                                        </div>
+                                                        <div class="column">
+                                                            <img src="/images/<%= row.image2 %>" alt="Snow"
+                                                                style="height: 100px;width: 130px;"
+                                                                onclick="myFunction(this);">
+                                                        </div>
+                                                        <div class="column">
+                                                            <img src="/images/<%= row.image3 %>" alt="Mountains"
+                                                                style="height: 100px;width: 130px;"
+                                                                onclick="myFunction(this);">
+                                                        </div>
+                                                        <div class="column">
+                                                            <img src="/images/<%= row.image4 %>" alt="Lights"
+                                                                style="height: 100px;width: 130px;"
+                                                                onclick="myFunction(this);">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="product-payment-details">
+                                                <div class="form-group">
+                                                    
+                                                    <input class="form-control" hidden style="width: 100%;" value="<%= row.owner_email %>" type="text" name="OwnerName">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Venue Name: </label>
+                                                    <input class="form-control" style="width: 100%;" type="text" name="name" value="<%= row.v_name %>" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Customer Name: </label>
+                                                    <input class="form-control" style="width: 100%;"type="text" name="CustomerName" required>
+                                                </div>
+
+                                                  <div class="form-group">
+                                                    <label for="">Email: </label>
+                                                    <input class="form-control" style="width: 100%;" type="text" name="email" value="<%= user.email %>" readonly>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label for="">People: </label>
+                                                    <input class="form-control" style="width: 100%;" type="text" name="Peoples" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Booking Date: </label>
+                                                    <input class="form-control" style="width: 100%;" type="date" name="BookingDate" required>
+                                                </div>
+                                                  <div class="form-group">
+                                                    <div class="log-input-left">
+                                                        <label><b>Select session  </b></label>
+                                                        <select class="form-control" style="height:40px;border-radius: 0%;border-width: 1px;" type="text" name="session" class="user"  aria-placeholder="Your City" required
+                                                            onfocus="this.value = '';"
+                                                            onblur="if (this.value == '') {this.value = 'Your session';}">
+                                                        <option disabled>Select your session</option>
+                                                        
+                                                        <option>Morning</option>
+                                                        <option>Evening</option>
+                                                        <option>Full day</option>
+
+                                                        
+                                                        </select>
+                                                    </div>                                                  </div>
+                                                    <div class="form-group">
+                                                    <label for="">Deposite Amount: </label>
+                                                    <input class="form-control" style="width: 100%;" type="text" name="amount" value="<%= row.v_deposite %>" readonly>
+                                                  </div>
+                                                
+                                             <br>
+
+
+                                                <input style="background: black;
+                background-color: black;
+                border-radius: 34rem;
+                border: none;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                height: 40px;
+                width: 200px;"
+                 type="submit" value="Pay Now"><br><br>
+                                                 <p class="text-danger"><i class="fa fa-credit-card"></i>Deposite amount
+                                                    will not refund in case you are cancelling your booking</p>
+    
+                                            </div>
+                                       
+                                        </div>
+
+                                    </main>
+                                    <% }}})} %>
+
+
+
+                    </form>
+
+
+                </div><br>
+            </div>
+        </center>
+    </div>

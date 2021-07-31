@@ -1,0 +1,70 @@
+<%- include("./partials/header") %>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/index"><span>Re</span>sale</a>
+            </div>
+              <ul>
+                  <li></li>
+                  <li></li>
+                  <div class="dropdown">
+                      <button class="dropbtn"><i class="fa fa-fw fa-user"></i>User
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="/view_profile">View Profile</a>
+                        <a href="/logout" class="btn btn-danger">Logout</a>
+                      </div>
+                  </div>
+                  <li><a class="active" href="/contactus">Contact Us</a></li>
+                  <li><a href="/category">Categories</a></li>
+                  <li><a href="/index">Home</a></li>
+              </ul>
+      </div>
+  </div>
+<div class="main-banner banner text-center">
+  <div class="container">
+        <h1>Sell  <span class="segment-heading">    anything online </span> with Resale</h1>
+        <p>The best way to look stylish on a budget is to try second-hand, bargain hunting, and vintage</p>
+          <!--<p>Perhaps second-hand cares, like second-hand clothes, come easily off and on</p> -->
+  </div>
+</div>
+<!-- Submit Ad -->
+<div class="submit-ad main-grid-border">
+    <div class="container">
+        <h2 class="head">Contact-Us</h2>
+        <div class="post-ad-form">
+            <form method="post" action="" >
+                    <label>Name</label>
+                        <div>
+                            <input type="text" id="contact_name" name="contact_name" placeholder="Enter  name" onkeyup="lettersonly(this)" required="">
+                            <div class="clearfix"></div>
+                        </div>
+                    <label>Email</label>
+                        <div>
+                            <input type="email" id="contact_email" name="contact_email" placeholder="Email Address" required=" "/>
+                            <div class="clearfix"></div>
+                        </div>
+                    <label>Subject</label>
+                        <div>
+                            <input type="text" id="contact_subject" name="contact_subject" placeholder="Enter subject" required="">
+                            <div class="clearfix"></div>
+                        </div>
+                    <label>Message</label>
+                         <div>
+                             <textarea class="mess" id="contact_message" name="contact_message" placeholder="Your message here" required=""></textarea>
+                            <div class="clearfix"></div>
+                         </div>
+                    <div class="sub_home">
+                            <div class="sub_home_left">
+                                    <input type="submit" value="Submit">
+                            </div>
+                            <div class="clearfix"> </div>
+                    </div>
+                </form>
+                </div>
+        </div>
+    </div>
+</div>
+<%- include("./partials/footer") %>

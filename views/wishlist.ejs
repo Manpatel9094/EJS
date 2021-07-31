@@ -1,0 +1,86 @@
+<%- include("./partials/header") %>
+
+
+  <br>
+  <header class="w3-container" style="padding-top:22px;padding-left: 32px;padding-right: 32px;">
+  
+      <a class="navbar-brand" href="/index"><span style="color: black; font-size: 28px;"><b>
+                  Venue Book.
+              </b></span></a>
+      <a href="/">
+          <span style="float: right; color: black; font-size: 22px;">
+              <b>LogOut</b>
+          </span>
+      </a>
+      <a href="/profile">
+          <span style="float: right; color: black; font-size: 22px;">
+              <b><%= user.username %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+      </a>
+  
+      <a href="/wishlist">
+          <span style="float: right; color: black; font-size: 22px;">
+              <b>Wishlist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+      </a>
+      
+      <a href="/My_Booking">
+          <span style="float: right; color: black; font-size: 22px;">
+              <b>My Bookings</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+      </a>
+      <a href="/view_more">
+          <span style="float: right; color: black; font-size: 22px;">
+              <b>Venues</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span>
+      </a>
+      
+  
+  
+  </header>
+  <br><br><br><hr></hr>
+    
+<div class="w3-main">
+
+    <header class="w3-container" style="padding-top:22px">
+        <center><h3><b><i class="fa fa-list"></i> Wishlist</h3></center><br>
+
+    </header><hr>
+    <div>
+<center>
+<table class="table" style="width: 50%;background-color: white;">
+    <thead>
+      <tr><center>
+        <!-- <th style="text-align: left;"><h3>Email</h3></th> -->
+        <th style="text-align: left;"><h3>Venue Name</h3></th>
+        <th style="text-align: left;"><h3>View</h3></th>
+        <th style="text-align: left;"><h3>Remove</h3></th>
+
+        
+
+        </center>
+      </tr>
+    </thead>
+    <tbody>
+      <%if (records.length >0){ %>
+      <% records.forEach(function(row){ %>
+      <tr>
+          <% if (user.email == row.email){ %>
+          <!-- <td><h4 style="color:darkgreen;"><%= row.email %></h4></td> -->
+          <td><h4 style="color:darkgreen;"><%= row.v_name %></h4></td>
+          <td><a href="/single_venue_display/<%= row.v_name %>" class="form-control" style="width:80%;background-color: blue;color: white;"><center>View</center></td>
+            <td><a href="/Removewishlist/<%= row.v_name %>" class="form-control" style="width:80%;background-color: red;color: white;"><center>Remove from wishlist</center></td>
+
+
+        <% }}) %>
+        
+      </tr>
+      <% }else{ %>
+        <tr>
+            <td colspan="6">No Record Found</td>
+            
+          </tr>
+        <% } %>
+    </tbody>
+  </table></center></div>
+

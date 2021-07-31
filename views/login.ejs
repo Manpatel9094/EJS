@@ -1,0 +1,77 @@
+<%- include("./partials/header") %>
+
+<div  style="padding-left: 15px;padding-top: 15px;padding-right: 15px;">
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+      id="ftco-navbar">
+      
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+         
+              <a class="navbar-brand" href="/"><span style="color: black; font-size: 28px;"><b>Venue Book.</b></span></a>
+    
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          
+          <ul class="nav navbar-nav navbar-right">
+           
+                <li class="nav-item cta">
+                  <a
+                    href="/register"
+                    style="color: black;font-size: 18px;"
+                    >Registration&nbsp;<i class="fa fa-plus"></i></a
+                  >
+                </li>
+                
+              
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    </div>
+
+ <section >
+    <form action="/login" method="POST">
+
+                <div class="sign-in-form">
+                    <div class="sign-in-form-top">
+                        <center><h1>Log in</h1></center>
+                        <hr>
+                    </div>
+                    <% if (message.length > 0) { %>
+                        <div class="alert alert-warning">
+                            <%= message %>
+                        </div>
+                    <% } %>
+                    
+                        <div class="log-input">
+                            <div class="log-input-center">
+                                <label><b>Email *</b></label>
+                               <input type="text" name="email" class="user" placeholder="Enter your email address"  required/>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="log-input">
+                            <div class="log-input-center">
+                                <label><b>Password *</b></label>
+                               <input type="password" name="password" class="lock" placeholder="Enter your Password"  required/>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div><hr>
+                        <input style="background: black;
+                        background-color: black;
+                        border-radius: 34rem;
+                        border: none;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                        height: 40px" type="submit" value="Log in">
+                    	 
+                    </div>
+                    
+                
+        
+    </form><br><br>
+<%- include("./partials/footer") %>

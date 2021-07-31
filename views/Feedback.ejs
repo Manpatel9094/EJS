@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                    
+        </head>
+        <%- include("./partials/header") %> 
+<br>
+<header class="w3-container" style="padding-top:22px;padding-left: 32px;padding-right: 32px;">
+
+    <a class="navbar-brand" href="/index"><span style="color: black; font-size: 28px;"><b>
+                Venue Book.
+            </b></span></a>
+    <a href="/">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>LogOut</b>
+        </span>
+    </a>
+    <a href="/profile">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b><%= user.username %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+
+    <a href="/wishlist">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Wishlist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+    <a href="/My_Booking">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>My Bookings</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    <a href="/view_more">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Venues</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+
+
+</header>
+        
+<br><br><br><hr></hr>
+    <body>
+        <form action="/Feedback" method="post">
+            <%if (records.length>0){ %>
+                <% records.forEach(function(row){ %>
+                    <% for(venue_name of venue_names) {%>
+                        <% if(row.name==venue_name.demo ){%>
+        <div class="w3-main" style="margin-left:250px;">
+
+        <center><br>
+            <br><br> 
+                   <div class="container" align="center">
+                <div class="row">
+                    <div class="col-lg-8 ">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 >User Profile</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="box box-info">
+                                    <div class="box-body">
+                                        
+                                       
+                                        <div class="clearfix"></div>
+                                       
+                                        <div class="col-sm-5 col-xs-6 tital " >Venue Name:</div>
+                                        <div class="col-sm-7 col-xs-6 ">
+                                            <input name="vname" value="<%= row.name %>" class="form-control" style="height: 50px" placeholder="Enter your name"
+                                            required type="text"> <br></div>
+                                       
+                                        <div class="col-sm-5 col-xs-6 tital " >Name:</div>
+                                        <div class="col-sm-7 col-xs-6 ">
+                                            <input name="username" value="<%= user.username %>" class="form-control" style="height: 50px" placeholder="Enter your name"
+                                            required type="text"> <br>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div>
+                                        <div class="col-sm-5 col-xs-6 tital " >Email:</div>
+                                        <div class="col-sm-7">
+                                            <input name="email" value="<%= user.email %>" class="form-control" style="height: 50px" placeholder="Enter your Email"
+                                            required type="text"> </div><br>
+                                        <div class="clearfix"></div>
+                                        <div class="bot-border"></div><br>
+                                        <div class="col-sm-5 col-xs-6 tital " >Description:</div>
+                                        <div class="col-sm-7">
+                                            <textarea name="Desc" rows="5" cols="33"  class="form-control" style="height: 50px" placeholder="Enter your Description"
+                                            required type="text"></textarea>    
+                                        </div>
+                                        <div class="col-sm-5 col-xs-6 tital " ></div>
+                                        <div class="col-sm-7" hidden>
+                                            
+                                            <input name="owner_email" value="<%= row.OwnerName %>" class="form-control" style="height: 50px" 
+                                            required type="text"><br> </div>
+                                        <div class="col-md-7"><br>
+                                            <input style="background: black;
+                                            background-color: black;
+                                            border-radius: 34rem;
+                                            border: none;
+                                            color: white;
+                                            font-size: 14px;
+                                            font-weight: bold;
+                                            width: 300px;
+                                            height: 40px" type="submit" value="Submit"></div>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>  
+                <script>
+                          $(function() {
+                $('#profile-image1').on('click', function() {
+                    $('#profile-image-upload').click();
+                });
+            });       
+                          </script> 
+                   
+                   
+                </div>
+                <% }}})}%>
+            </form>
+
+            
+        </body>
+    <!------ Include the above in your HEAD tag ---------->
+    </html>

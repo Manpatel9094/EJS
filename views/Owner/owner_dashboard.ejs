@@ -1,0 +1,82 @@
+<%- include("./menu") %>
+
+
+    <html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Owner Dashboard</title>
+
+    </head>
+
+    <body>
+
+
+        <div class="w3-main" style="margin-left:300px;">
+
+            <!-- Header -->
+            <header class="w3-container" style="padding-top:22px">
+                <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+            </header>
+
+            <div class="w3-row-padding w3-margin-bottom">
+                
+                <div class="w3-quarter"><br>
+                    <div class="w3-container w3-teal w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-home w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3><%=o_venue_count%></h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Total Venues</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter"><br>
+                    <div class="w3-container w3-red w3-text-white w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-bank w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3><%=pending_count%></h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Pending Request</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter"><br>
+                    <div class="w3-container w3-purple w3-text-white w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-bank w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3><%=accept_count%></h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Accepted  venue</h4>
+                    </div>
+                </div>
+                <div class="w3-quarter"><br>
+                    <div class="w3-container w3-blue w3-padding-16">
+                        <div class="w3-left"><i class="fa fa-user w3-xxxlarge"></i></div>
+                        <div class="w3-right">
+                            <h3><%=o_booking_count%></h3>
+                        </div>
+                        <div class="w3-clear"></div>
+                        <h4>Booking</h4>
+                    </div>
+                </div>
+
+                
+
+                <hr>
+                <!-- Footer -->
+                <footer class="w3-container w3-padding-16 w3-light-grey">
+
+                    <p>Powered by Man Patel <i class="fa fa-copyright"></i> 2020</p>
+                </footer>
+
+                <!-- End page content -->
+            </div>
+        
+        </div>
+
+
+    </body>
+
+    </html>

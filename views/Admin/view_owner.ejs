@@ -1,0 +1,61 @@
+<%- include("./menu") %>
+<%- include("../partials/header") %>
+<div class="w3-main" style="margin-left:300px;">
+
+    <header class="w3-container" style="padding-top:22px">
+        <center><h3><b><i class="fa fa-list"></i> View Membership Owners</b></h3></center>
+
+    </header><hr>
+    <div>
+<center>
+<table class="table" style="width: 90%;background-color: white;">
+    <thead>
+      <tr><center>
+        <th><h3>User name</h3></th>
+        <th><h3>Email ID</h3></th>
+        <th><h3>Contact No</h3></th>
+        <th><h3>Amount</h3></th>
+        <th><h3>View</h3></th>
+        
+
+        </center>
+      </tr>
+    </thead>
+    <tbody>
+      <%if (records.length >0){ %>
+      <% records.forEach(function(row){ %>
+      <tr>
+
+        <%if (row.email != 'Admin@gmail.com'){ %>
+
+            <%if (row.status == 'Active'){ %>
+
+        <td><h4 style="color:darkgreen;"><%= row.name %></h4></td>
+        <td><h4 style="color:darkgreen;"><%= row.email %></h4></td>
+        <td><h4 style="color:darkgreen;"><%= row.phone %></h4></td>
+        <td><h4 style="color:darkgreen;"><%= row.amount %> ₹</h4></td>
+
+        <td><a href='#<%= row.email %>' class="form-control" style="width:60%;background-color: blue;color: white;"><center>Venues</center></td>
+
+        
+
+        <% }else{ %>
+        <td><h4 style="color:red;"><%= row.username %></h4></td>
+        <td><h4 style="color:red;"><%= row.email %></h4></td>
+        <td><h4 style="color:red;"><%= row.phone %></h4></td>
+        <td><h4 style="color:darkgreen;"><%= row.amount %> ₹</h4></td>
+
+        <td><a href='#<%= row.email %>' class="form-control" style="float:right;width:60%;background-color: rgb(212, 2, 2);color: white;"><center>Venues</center></td>
+
+
+        <% }}}) %>
+      </tr>
+      <% }else{ %>
+        <tr>
+            <td colspan="6">No Record Found</td>
+            
+          </tr>
+        <% } %>
+    </tbody>
+  </table></center></div>
+

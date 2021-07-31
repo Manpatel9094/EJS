@@ -1,0 +1,78 @@
+<%- include("./partials/header") %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Paytm-Nodejs</title>
+  </head>
+  <body style="background-color:white">
+
+
+        <div style="padding-left: 15px;padding-top: 15px;padding-right: 15px;">
+            <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
+                id="ftco-navbar">
+
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+
+                        <a class="navbar-brand" href="/index"><span style="color: black; font-size: 28px;"><b>
+                                    <h1>Venue Book.</h1>
+                                </b></span></a>
+
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+
+                        <ul class="nav navbar-nav navbar-right">
+
+
+                            <li class="nav-item cta">
+                                <a href="/" style="color: black;font-size: 18px;">logout&nbsp;<i
+                                        class="fa fa-plus"></i></a>
+                            </li>
+
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+    
+            <center>
+            <form class="" action="/paynow" method="post">
+              <div class="form-group">
+                <label for="">Name: </label>
+                <input class="form-control" style="width: 20%;" type="text" name="name" value="<%= user.username %>" readonly>
+              </div>
+              <div class="form-group">
+                <label for="">Email: </label>
+                <input class="form-control" style="width: 20%;" type="text" name="email" value="<%= user.email %>" readonly>
+              </div>
+              <div class="form-group">
+                <label for="">Phone: </label>
+                <input class="form-control" style="width: 20%;" type="text" name="phone" value="<%= user.phone %>" readonly>
+              </div>
+                <div class="form-group">
+                <label for="">Amount: </label>
+                <input class="form-control" style="width: 20%;" type="text" name="amount" value="10000" readonly>
+              </div>
+              <div class="form-group">
+                <input style="background: black;
+                background-color: black;
+                border-radius: 34rem;
+                border: none;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                height: 40px;
+                width: 200px;"
+                 type="submit" value="Pay Now">              </div>
+            </form></center>
+          
+  </body>
+</html>
+<div style="position:fixed;bottom: 10%;left: 7%;">
+    <%- include("./partials/footer") %>
+</div>

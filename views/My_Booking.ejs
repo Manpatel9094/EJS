@@ -1,0 +1,89 @@
+<%- include("./partials/header") %> 
+<br>
+<header class="w3-container" style="padding-top:22px;padding-left: 32px;padding-right: 32px;">
+
+    <a class="navbar-brand" href="/index"><span style="color: black; font-size: 28px;"><b>
+                Venue Book.
+            </b></span></a>
+    <a href="/">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>LogOut</b>
+        </span>
+    </a>
+    <a href="/profile">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b><%= user.username %></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+
+    <a href="/wishlist">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Wishlist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+    <a href="/My_Booking">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>My Bookings</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    <a href="/view_more">
+        <span style="float: right; color: black; font-size: 22px;">
+            <b>Venues</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+    </a>
+    
+
+
+</header>
+        
+<br><br><br><hr></hr>
+    <header class="w3-container" style="padding-top:22px">
+        <center><h3><b><i class="fa fa-list"></i> View Bookings</b></h3></center>
+
+    </header>
+    <div>
+<center>
+    <p class="text-danger"><i class="fa fa-credit-card"></i>Deposite amount
+        will not refund in case you are cancelling your booking</p>
+<table class="table" style="width: 90%;background-color: white;">
+    <thead>
+      <tr><center>
+        <th><h3>Venue name</h3></th>
+        <th><h3>Owner Email </h3></th>
+        <th><h3>Event Time</h3></th>
+        <th><h3>Booking Date</h3></th>
+        <th><h3> DepositAmount</h3></th>
+        <th><h3> Give Feedback</h3></th>
+        
+        <th><h3>Action</h3></th>
+        
+
+        </center>
+      </tr>
+    </thead>
+    <tbody>
+        <%if (records.length >0){ %>
+            <% records.forEach(function(row){ %>        
+            <tr>
+                <%if (row.email == user.email){ %>
+
+                    <td><h4 style="color:darkgreen;"><%= row.name %></h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.OwnerName %></h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.session %> </h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.BookingDate %> </h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.amount %> </h4></td> 
+                    <td><a href="/Feedback/<%= row.name %>" class="form-control" style="margin: center 0px;background-color: green;color: white;"><center>Give Feedback</center></td> 
+                    <td><a href="/Remove/<%= row.BookingDate %>" class="form-control" style="margin: center 0px;background-color:red;color: white;"><center>Cancel</center></td>             
+                <% }%></tr>
+     
+            <%   })%>
+       <%}else{ %>
+        <tr>
+            <td colspan="6">No Record Found</td>
+            
+          </tr>
+        <% } %>
+    </tbody>
+  </table></center></div>
+

@@ -1,0 +1,49 @@
+<%- include("./menu") %>
+<%- include("../partials/header") %>
+<div class="w3-main" style="margin-left:300px;">
+
+    <header class="w3-container" style="padding-top:22px">
+        <center><h3><b><i class="fa fa-list"></i> View Bookings</b></h3></center>
+
+    </header><hr>
+    <div>
+<center>
+<table class="table" style="width: 90%;background-color: white;">
+    <thead>
+      <tr><center>
+        <th><h3>Venue name</h3></th>
+        <th><h3>Customer name</h3></th>
+        <th><h3>Owner Email </h3></th>
+        <th><h3>Event Time</h3></th>
+        <th><h3>Booking Date</h3></th>
+        <th><h3> DepositAmount</h3></th>
+        
+        
+
+        </center>
+      </tr>
+    </thead>
+    <tbody>
+        <%if (records.length >0){ %>
+            <% records.forEach(function(row){ %>        
+            <tr>
+                <%if (row.OwnerName == user.email){ %>
+
+                    <td><h4 style="color:darkgreen;"><%= row.name %></h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.CustomerName %></h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.OwnerName %></h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.session %> </h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.BookingDate %> </h4></td>
+                    <td><h4 style="color:darkgreen;"><%= row.amount %> </h4></td>               
+                <% }%></tr>
+     
+            <%   })%>
+       <%}else{ %>
+        <tr>
+            <td colspan="6">No Record Found</td>
+            
+          </tr>
+        <% } %>
+    </tbody>
+  </table></center></div>
+
